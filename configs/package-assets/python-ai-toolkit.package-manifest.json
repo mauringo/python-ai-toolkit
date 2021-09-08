@@ -1,0 +1,20 @@
+{
+    "$schema": "https://json-schema.boschrexroth.com/ctrlx-automation/ctrlx-core/apps/package-manifest/package-manifest.v1.schema.json",
+    "id": "jupyter-aj",
+    "services": {
+        "proxyMapping": [{
+            "binding": ":8888",
+            "name": "jupyter-aj.web",
+            "url": "/jupyter"
+        }]
+    },
+    "menus": {
+        "sidebar": [{
+            "id": "jupyter-aj.jupyter",
+            "title": "Jupyter",
+            "link": "/jupyter",
+            "icon": "bosch-ic-document-edit",
+            "target": "jupyter"
+        }]
+    }
+}

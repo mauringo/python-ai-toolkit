@@ -1,0 +1,85 @@
+name: python-ai-toolkit
+version: 0.0.3
+summary: Testsnap for Jupyter
+title: Jupyter AJ.
+description: 'Simple Webbased Editor'
+
+base: core18
+confinement: strict
+grade: stable
+
+# Limit architectures as ppcel64 doesn't build currently
+architectures:
+  - build-on: amd64
+  - build-on: arm64
+
+
+apps:
+  jupyter:
+    command: jupyter-notebook --allow-root --no-browser --ip='0.0.0.0' --NotebookApp.token='' --NotebookApp.password='' --NotebookApp.base_url='jupyter'
+    daemon: simple
+    plugs:
+      - network-bind
+      - network-status
+      - network-observe
+      - serial-port
+    environment:
+       "LD_LIBRARY_PATH": "$LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/lapack:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/blas"
+
+    
+  desktop-launch:
+    command: bin/desktop-launch
+    plugs:
+      - desktop  
+
+parts:
+
+
+  requests:
+    plugin: python
+    python-version: python3
+    python-packages:
+      - requests
+ 
+      
+    build-packages:
+      - python3-dev
+      - build-essential
+
+
+  ai:
+    plugin: nil
+    stage-packages:
+      - libfreetype6-dev
+      - pkg-config
+      - libpng-dev
+      - python3-numpy
+      - python3-opencv
+      - python3-pandas
+      - python3-scipy
+
+
+  jupyter:
+    plugin: python
+    python-version: python3
+    source: .
+    python-packages:
+      - jupyter
+      - ctrlx-datalayer
+      - ctrlx-fbs
+
+  
+  shscripts:  
+    source: ./shscripts/
+    plugin: dump
+    organize:
+      '*': bin/
+      
+
+  configs:
+    source: ./configs
+    plugin: dump
+    organize:
+      'package-assets/*': package-assets/${SNAPCRAFT_PROJECT_NAME}/
+
+
