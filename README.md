@@ -1,7 +1,7 @@
 # python-AI-toolkit
 
-The idea is to create an app able to summarize the needs of the average python 
-user.
+The idea is to create an app/snap that contains all the standard packages needed to learn python
+AI and data analysis. All driven by a jupyter web interface. 
 
 have fun
 
