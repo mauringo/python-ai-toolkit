@@ -44,6 +44,8 @@ parts:
       - pymongo
       - Pillow
       - influxdb
+      - imutils 
+      - werkzeug
  
  
       
