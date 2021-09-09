@@ -1,5 +1,5 @@
 name: python-ai-toolkit
-version: 0.0.4
+version: 0.0.5
 summary: Testsnap for Jupyter
 title: Jupyter AJ.
 description: 'Simple Webbased Editor'
@@ -40,6 +40,11 @@ parts:
     python-version: python3
     python-packages:
       - requests
+      - flask
+      - pymongo
+      - Pillow
+      - influxdb
+ 
  
       
     build-packages:
