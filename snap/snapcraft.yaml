@@ -1,5 +1,5 @@
 name: python-ai-toolkit
-version: 0.0.3
+version: 0.0.4
 summary: Testsnap for Jupyter
 title: Jupyter AJ.
 description: 'Simple Webbased Editor'
@@ -57,6 +57,8 @@ parts:
       - python3-opencv
       - python3-pandas
       - python3-scipy
+      - python3-sklearn
+      - python3-sklearn-lib
 
 
   jupyter:
