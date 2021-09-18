@@ -1,7 +1,6 @@
 name: python-ai-toolkit
 version: 0.0.5
-summary: Testsnap for Jupyter
-title: Jupyter AJ.
+summary: Python AI starte kit
 description: 'Simple Webbased Editor'
 
 base: core18
@@ -46,6 +45,7 @@ parts:
       - influxdb
       - imutils 
       - werkzeug
+      - bokeh
  
  
       
