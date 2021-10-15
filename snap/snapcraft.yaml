@@ -40,6 +40,7 @@ parts:
     python-packages:
       - requests
       - tflite
+      - pillow
       - flask
       - pymongo
       - influxdb
