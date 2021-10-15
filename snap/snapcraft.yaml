@@ -37,6 +37,13 @@ parts:
   requests:
     plugin: python
     python-version: python3
+    stage-packages:
+      - libzbar0
+      - libzbar-dev
+      
+    build-packages:
+      - libzbar0
+      - libzbar-dev
     python-packages:
       - requests
       - tflite
