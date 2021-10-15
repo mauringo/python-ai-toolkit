@@ -42,7 +42,6 @@ parts:
       - tflite
       - flask
       - pymongo
-      - Pillow
       - influxdb
       - imutils 
       - werkzeug
