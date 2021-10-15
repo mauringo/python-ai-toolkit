@@ -39,6 +39,7 @@ parts:
     python-version: python3
     python-packages:
       - requests
+      - tflite
       - flask
       - pymongo
       - Pillow
