@@ -46,7 +46,10 @@ parts:
       - imutils 
       - werkzeug
       - bokeh
- 
+      - jupyter
+      - ctrlx-datalayer
+      - ctrlx-fbs
+
  
       
     build-packages:
@@ -67,10 +70,7 @@ parts:
       - python3-sklearn
       - python3-sklearn-lib
       - zlib1g
-      - jupyter
-      - ctrlx-datalayer
-      - ctrlx-fbs
-
+ 
   
   shscripts:  
     source: ./shscripts/
