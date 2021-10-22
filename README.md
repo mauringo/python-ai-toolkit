@@ -1,5 +1,8 @@
 # python-AI-toolkit
 
+EDITOR: Jupyter-Notebook. 
+SNAP based on the notorious: https://github.com/albrecht-j/jupyter-aj
+
 The idea is to create an app/snap that contains all the standard packages needed to learn python
 AI and data analysis. All driven by a jupyter web interface. 
 
