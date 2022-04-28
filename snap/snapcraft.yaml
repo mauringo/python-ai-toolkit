@@ -1,9 +1,9 @@
 name: python-ai-toolkit
-version: 0.0.5
+version: 0.1.4
 summary: Python AI starte kit
 description: 'Simple Webbased Editor'
 
-base: core18
+base: core20
 confinement: strict
 grade: stable
 
@@ -15,7 +15,7 @@ architectures:
 
 apps:
   jupyter:
-    command: jupyter-notebook --allow-root --no-browser --ip='0.0.0.0' --NotebookApp.token='' --NotebookApp.password='' --NotebookApp.base_url='jupyter'
+    command: bin/jupyter.wrapper
     daemon: simple
     plugs:
       - network-bind
@@ -23,7 +23,8 @@ apps:
       - network-observe
       - serial-port
     environment:
-       "LD_LIBRARY_PATH": "$LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/lapack:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/blas"
+       "LD_LIBRARY_PATH": "$LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/lapack:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/blas:$SNAP/usr/lib/python3/dist-packages"
+      
 
     
   desktop-launch:
@@ -36,50 +37,63 @@ parts:
 
   requests:
     plugin: python
-    python-version: python3
+    build-environment:
+      - PYTHONPATH: "$SNAPCRAFT_PART_INSTALL/usr/lib/python3/dist-packages"
+
     stage-packages:
       - libzbar0
       - libzbar-dev
+      - libfreetype6-dev
+      - wget
+      - git
+      - libssl-dev
+      - libcurl4-openssl-dev
+      - libcurl-dev
+      - pkg-config
+      - libpng-dev
+      - python3-opencv
+      - python3-grpcio
+      - unzip
+      - python3-wheel
       
-    build-packages:
-      - libzbar0
-      - libzbar-dev
     python-packages:
+      - wheel
       - requests
-      - tflite
       - pillow
       - flask
       - pymongo
+      - gitpython
+      - appdirs
       - influxdb
       - imutils 
       - werkzeug
       - bokeh
-      - jupyter
-      - ctrlx-datalayer
-      - ctrlx-fbs
+      - jupyterlab
+      - jupyterlab-git
+      - jupyterlab-system-monitor
+      - jupyterlab-zip
+      - numpy
+      - six
+      - python-socketio[client]
+      - scikit-learn
+      - scipy
+      - opencv-python
+      - schedule 
+      - pandas
+      - matplotlib
 
- 
-      
     build-packages:
       - python3-dev
+      - python3-wheel
       - build-essential
+      - python3-setuptools
+      - libzbar0
+      - libzbar-dev
 
 
-  ai:
-    plugin: nil
-    stage-packages:
-      - libfreetype6-dev
-      - pkg-config
-      - libpng-dev
-      - python3-numpy
-      - python3-opencv
-      - python3-pandas
-      - python3-scipy
-      - python3-sklearn
-      - python3-sklearn-lib
-      - zlib1g
+
  
-  
+ 
   shscripts:  
     source: ./shscripts/
     plugin: dump
