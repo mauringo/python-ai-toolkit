@@ -1,6 +1,6 @@
 name: python-ai-toolkit
-version: 0.1.4
-summary: Python AI starte kit
+version: 0.1.5
+summary: Python AI starter kit
 description: 'Simple Webbased Editor'
 
 base: core20
@@ -22,6 +22,7 @@ apps:
       - network-status
       - network-observe
       - serial-port
+      - datalayer
     environment:
        "LD_LIBRARY_PATH": "$LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/lapack:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/blas:$SNAP/usr/lib/python3/dist-packages"
       
@@ -74,6 +75,9 @@ parts:
       - jupyterlab-zip
       - numpy
       - six
+      - autopep8
+      - ctrlx_fbs
+      - ctrlx_datalayer
       - python-socketio[client]
       - scikit-learn
       - scipy
@@ -92,6 +96,13 @@ parts:
 
 
 
+  datalayerdeb:
+      plugin: dump
+      source: https://github.com/boschrexroth/ctrlx-automation-sdk/releases/download/1.14.0/ctrlx-datalayer-1.7.13.deb
+      source-type: deb
+      stage-packages:
+        - libzmq5
+     
  
  
   shscripts:  
@@ -107,4 +118,8 @@ parts:
     organize:
       'package-assets/*': package-assets/${SNAPCRAFT_PROJECT_NAME}/
 
-
+plugs:
+  datalayer:
+    interface: content
+    content: datalayer
+    target: $SNAP_DATA/.datalayer 
