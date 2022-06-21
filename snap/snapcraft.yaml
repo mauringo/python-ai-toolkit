@@ -1,5 +1,5 @@
 name: python-ai-toolkit
-version: 0.1.5
+version: 0.1.5.1
 summary: Python AI starter kit
 description: 'Simple Webbased Editor'
 
@@ -60,6 +60,7 @@ parts:
     python-packages:
       - wheel
       - requests
+      - pyserial
       - pillow
       - flask
       - pymongo
