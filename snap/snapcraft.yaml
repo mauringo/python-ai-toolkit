@@ -1,5 +1,5 @@
 name: python-ai-toolkit
-version: 0.1.5.1
+version: 0.1.5.2
 summary: Python AI starter kit
 description: 'Simple Webbased Editor'
 
@@ -56,6 +56,7 @@ parts:
       - python3-grpcio
       - unzip
       - python3-wheel
+      - libatlas-base-dev
       
     python-packages:
       - wheel
@@ -99,6 +100,7 @@ parts:
       - python3-setuptools
       - libzbar0
       - libzbar-dev
+      - libatlas-base-dev
 
 
 
