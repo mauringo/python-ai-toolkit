@@ -86,6 +86,11 @@ parts:
       - schedule 
       - pandas
       - matplotlib
+      - typer
+      - tsfresh
+      - pydantic
+      - azure-iot-device
+      - colorama
 
     build-packages:
       - python3-dev
