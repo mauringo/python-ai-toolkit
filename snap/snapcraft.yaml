@@ -1,5 +1,5 @@
 name: python-ai-toolkit
-version: 0.1.5.2
+version: 0.1.5.3
 summary: Python AI starter kit
 description: 'Simple Webbased Editor'
 
@@ -92,6 +92,7 @@ parts:
       - pydantic
       - azure-iot-device
       - colorama
+      - asyncua
 
     build-packages:
       - python3-dev
