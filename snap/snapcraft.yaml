@@ -1,5 +1,5 @@
 name: python-ai-toolkit
-version: 0.1.5.3
+version: 0.1.5.4
 summary: Python AI starter kit
 description: 'Simple Webbased Editor'
 
@@ -107,7 +107,7 @@ parts:
 
   datalayerdeb:
       plugin: dump
-      source: https://github.com/boschrexroth/ctrlx-automation-sdk/releases/download/1.14.0/ctrlx-datalayer-1.7.13.deb
+      source: https://github.com/boschrexroth/ctrlx-automation-sdk/releases/download/1.18.0/ctrlx-datalayer-1.9.1.deb
       source-type: deb
       stage-packages:
         - libzmq5
