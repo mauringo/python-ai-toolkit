@@ -54,11 +54,13 @@ parts:
       - libpng-dev
       - python3-opencv
       - python3-grpcio
+      - ffmpeg
       - unzip
       - python3-wheel
       - libatlas-base-dev
       
     python-packages:
+      - python-ffmpeg
       - wheel
       - requests
       - pyserial
