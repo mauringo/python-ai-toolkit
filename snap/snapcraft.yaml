@@ -54,6 +54,12 @@ parts:
       - libpng-dev
       - python3-opencv
       - python3-grpcio
+      - qemu-user 
+      - qemu-user-static 
+      - gcc-x86-64-linux-gnu 
+      - binutils-x86-64-linux-gnu 
+      - binutils-x86-64-linux-gnu-dbg 
+      - build-essential
       - ffmpeg
       - unzip
       - python3-wheel
