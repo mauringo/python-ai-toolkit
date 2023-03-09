@@ -51,6 +51,7 @@ parts:
       - libcurl4-openssl-dev
       - libcurl-dev
       - pkg-config
+      - libc6-dev
       - libpng-dev
       - python3-opencv
       - python3-grpcio
