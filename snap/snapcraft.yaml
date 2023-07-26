@@ -102,6 +102,7 @@ parts:
       - azure-iot-device
       - colorama
       - asyncua
+      - landingai
 
     build-packages:
       - python3-dev
