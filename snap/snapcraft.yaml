@@ -98,11 +98,11 @@ parts:
       - matplotlib
       - typer
       - tsfresh
-      - pydantic
       - azure-iot-device
       - colorama
       - asyncua
       - landingai
+      
 
     build-packages:
       - python3-dev
