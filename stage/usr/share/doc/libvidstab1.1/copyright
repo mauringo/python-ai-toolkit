@@ -1,0 +1,30 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: libvidstab
+Source: https://github.com/georgmartius/vid.stab
+
+Files: *
+Copyright: 2007-2013 Georg Martius <georg.martius@web.de>
+           2011 Alexey Osipov <lion-simba@jabber.ru>
+License: GPL-2.0+
+
+Files: debian/*
+Copyright: 2013 Rogério Brito <rbrito@ime.usp.br>
+           2018 Keng-Yu Lin <kengyu@lexical.tw>
+License: GPL-2.0+
+
+License: GPL-2.0+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".

@@ -24,9 +24,8 @@ apps:
       - serial-port
       - datalayer
     environment:
-       "LD_LIBRARY_PATH": "$LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/lapack:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/blas:$SNAP/usr/lib/python3/dist-packages"
-      
-
+      "LD_LIBRARY_PATH": "$LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/lapack:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/blas:$SNAP/usr/lib/python3/dist-packages"
+     
     
   desktop-launch:
     command: bin/desktop-launch
@@ -42,77 +41,80 @@ parts:
       - PYTHONPATH: "$SNAPCRAFT_PART_INSTALL/usr/lib/python3/dist-packages"
 
     stage-packages:
-      - libzbar0
-      - libzbar-dev
-      - libfreetype6-dev
       - wget
       - git
+      - zip 
       - libssl-dev
       - libcurl4-openssl-dev
       - libcurl-dev
       - pkg-config
-      - libc6-dev
-      - libpng-dev
-      - python3-opencv
-      - python3-grpcio
-      - qemu-user 
-      - qemu-user-static 
-      - gcc-x86-64-linux-gnu 
-      - binutils-x86-64-linux-gnu 
-      - binutils-x86-64-linux-gnu-dbg 
       - build-essential
-      - ffmpeg
+      - libpython3.8
+      - libusb-1.0-0-dev
       - unzip
+      - ffmpeg 
+      - libglu1-mesa
+      - freeglut3
+      - libsm6 
+      - libxext6 
       - python3-wheel
-      - libatlas-base-dev
       
     python-packages:
-      - python-ffmpeg
       - wheel
       - requests
-      - pyserial
-      - pillow
-      - flask
-      - pymongo
-      - gitpython
-      - appdirs
-      - influxdb
-      - imutils 
-      - werkzeug
-      - bokeh
       - jupyterlab
       - jupyterlab-git
-      - jupyterlab-system-monitor
-      - jupyterlab-zip
-      - numpy
+      - flask
+      - werkzeug 
+      - jwcrypto
       - six
       - autopep8
+      - pandas
+      - numpy
+      - matplotlib
       - ctrlx_fbs
       - ctrlx_datalayer
-      - python-socketio[client]
-      - scikit-learn
-      - scipy
-      - opencv-python
-      - schedule 
-      - pandas
-      - matplotlib
-      - typer
-      - tsfresh
-      - pydantic
-      - azure-iot-device
-      - colorama
-      - asyncua
+      - landingai
+
 
     build-packages:
       - python3-dev
       - python3-wheel
       - build-essential
       - python3-setuptools
-      - libzbar0
-      - libzbar-dev
-      - libatlas-base-dev
 
+  mylib:
+    plugin: nil
+    source: ./mywheels
+    build-packages:
+      - python3-dev
+      - python3-wheel
+      - build-essential
+      - python3-setuptools
 
+    after:
+      - requests
+    override-build: |
+        echo $SNAPCRAFT_ARCH_TRIPLET
+        case "$SNAPCRAFT_ARCH_TRIPLET" in
+          *aarch64*)
+              WHEEL_FILE="neoapi-1.3.0-cp38-cp38-linux_aarch64.whl" ;;
+          *x86_64*)
+              WHEEL_FILE="neoapi-1.3.0-cp38-cp38-linux_x86_64.whl" ;;
+          *)
+              echo "Unsupported architecture!"
+              exit 1 ;;
+        esac
+        ls
+        #python3 -m venv  $SNAPCRAFT_PART_INSTALL 
+        python3 -m pip install  --no-cache-dir -I $WHEEL_FILE -t $SNAPCRAFT_PART_INSTALL/mylibs
+        cp $SNAPCRAFT_PART_INSTALL/mylibs/neoapi/_neoapi.so $SNAPCRAFT_PART_INSTALL/mylibs/neoapi/_neoapi
+
+        snapcraftctl stage
+
+    stage-packages:
+      - libpython3.8
+      - libusb-1.0-0-dev
 
   datalayerdeb:
       plugin: dump
@@ -135,9 +137,35 @@ parts:
     plugin: dump
     organize:
       'package-assets/*': package-assets/${SNAPCRAFT_PROJECT_NAME}/
+      'secure-assets/*': secure-assets/${SNAPCRAFT_PROJECT_NAME}/
+
+
 
 plugs:
   datalayer:
     interface: content
     content: datalayer
     target: $SNAP_DATA/.datalayer 
+
+
+slots:
+  secure-assets:
+    interface: content
+    content: secure-assets
+    source:
+      read:
+        - $SNAP/secure-assets/${SNAPCRAFT_PROJECT_NAME}
+
+  service-token:
+    interface: content
+    content: service-token
+    source:
+      write:
+        - $SNAP_DATA/service-token/${SNAPCRAFT_PROJECT_NAME}
+
+  package-assets:
+    interface: content
+    content: package-assets
+    source:
+      read:
+        - $SNAP/package-assets/${SNAPCRAFT_PROJECT_NAME}

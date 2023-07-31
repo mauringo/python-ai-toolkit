@@ -1,0 +1,26 @@
+This list was generated on Tue Aug 27 23:49:44 UTC 2019 for amd64
+It contains a list of essential packages (which are also build-essential).
+
+base-files
+base-passwd
+bash
+bsdutils
+coreutils
+dash
+debianutils
+diffutils
+dpkg
+findutils
+grep
+gzip
+hostname
+init-system-helpers
+libc-bin
+login
+ncurses-base
+ncurses-bin
+perl-base
+sed
+sysvinit-utils
+tar
+util-linux
