@@ -1,2 +1,0 @@
-#!/bin/sh
-xdg-open http://localhost:8888/jupyter

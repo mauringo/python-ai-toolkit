@@ -1,8 +1,0 @@
-prefix=/home/boschrexroth/Example/stage/usr
-
-Name: shared-mime-info
-Description: Freedesktop common MIME database
-Version: 1.15
-Requires:
-Libs:
-Cflags:

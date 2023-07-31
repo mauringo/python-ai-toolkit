@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Encoding=UTF-8
-Name=Python AI toolkit
-Comment=Monitor your device usage
-Exec=python-ai-toolkit.desktop-launch
-Icon=${SNAP}/meta/gui/icon.png
-Terminal=false
-Categories=Development;
