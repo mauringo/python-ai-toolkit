@@ -1,0 +1,10 @@
+#!/bin/sh
+
+export GIT_EXEC_PATH=$SNAP/usr/lib/git-core/
+
+export PYTHONPATH="${PYTHONPATH}:$SNAP/mylibs"
+
+#python3 $SNAP/bin/app.py uncomment to start your app
+
+jupyter-lab --allow-root --no-browser --ip='0.0.0.0' --NotebookApp.token='' --NotebookApp.password='' --NotebookApp.base_url='jupyter' 
+#--NotebookApp.notebook_dir ='/var/snap/python-ai-toolkit/common/'
