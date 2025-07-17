@@ -72,6 +72,7 @@ parts:
       - requests
       - pyserial
       - pillow
+      - mouse
       - flask
       - pymongo
       - gitpython
